@@ -1,0 +1,8 @@
+.action-btn {
+    margin-right: 5px;
+    width: 80px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}

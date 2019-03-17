@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="ingridientForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-5 form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="name">
+                    <span *ngIf="!ingridientForm.get('name').valid && ingridientForm.get('name').touched"
+                        class="help-block">Please enter a valid name!</span>
+                </div>
+
+                <div class="col-sm-2 form-group">
+                    <label for="amount">Amount</label>
+                    <input 
+                    type="number" 
+                    id="amount" 
+                    class="form-control" 
+                    formControlName="amount">
+                    <span *ngIf="!ingridientForm.get('amount').valid && ingridientForm.get('amount').touched"
+                        class="help-block">Please enter a valid amount!</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button 
+                    class="btn btn-success action-btn" 
+                    type="submit" 
+                    [disabled]="!ingridientForm.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+                    <button 
+                    class="btn btn-danger action-btn" 
+                    type="button"(click)="onDelete()"
+                    *ngIf="editMode">Delete</button>
+                    <button class="btn btn-primary action-btn" type="button" (click)="onClear()">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
